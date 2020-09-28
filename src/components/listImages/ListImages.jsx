@@ -7,7 +7,7 @@ import './index.sass';
 /* eslint-disable */
 
 const ListImages = () => {
-	const { updateState } = useContext(ContextApp);
+	const { dispatch } = useContext(ContextApp);
 	const images = useGetImages();
 
 	if (!images) {
@@ -20,7 +20,7 @@ const ListImages = () => {
 
 	return (
 		<div className="wrapper">
-			{images.map(({ id, url }) => <img key={id} src={url} onClick={() => updateState(id)} alt="" />)}
+			{images.map(({ id, url }) => <img key={id} src={url} onClick={() => dispatch({type: 'CHANGE_ID', payload: id})} alt="" />)}
 		</div>
 	);
 };
