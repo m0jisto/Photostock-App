@@ -14,13 +14,13 @@ export const useGetImages = () => {
 };
 
 export const useGetImage = (id) => {
-	const [image, updateImages] = useState(null);
+	const [img, updateImg] = useState(null);
 
 	useEffect(() => {
 		getResource(`/${id}`)
-			.then((data) => updateImages(data))
-			.catch(() => updateImages('error'));
+			.then((data) => updateImg(data))
+			.catch(() => updateImg('error'));
 	}, [id]);
 
-	return image;
+	return img;
 };
